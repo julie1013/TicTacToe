@@ -84,3 +84,10 @@ td:hover {
   border-radius: 30px;
   border: 3px solid black;
 }
+
+.board.player1_cell{
+    color: #cc0000;
+}
+board.player2_cell{
+    color: #0000cc;
+}
