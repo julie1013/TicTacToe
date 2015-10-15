@@ -1,7 +1,8 @@
 // $(document).ready(function(){
   //run jQuery after document has loaded
 
-  var player = "O";
+  var player = 'X';
+  var turnCounter = 0;
 
   var switchPlayer = function () {
     if (player === 'X') {
@@ -36,14 +37,20 @@
     return null;
   }
 
-  var updateScore = function updateScore(wonBy) {
+  var timeResults = function (message) {
+    var $message = $('.top');
+    $message.find('p').remove('p');
+    $message.append('<p>' + message + '</p>')
+  }
+
+  var updateScore = function (wonBy) {
     var $scoreTicker = $('.score' + wonBy + ' .score');
     var score = Number($scoreTicker.html());
 
     $scoreTicker.html(++score);
   };
 
-  var resetBoard = function resetBoard() {
+  var resetBoard = function() {
     clearBoardUI();
     clearBoard();
   };
@@ -51,17 +58,36 @@
   var takeTurn = function(event){
     var squareClicked = event.target;
     var $sqClicked = $(squareClicked);
+    var imageSrc;
+
     if ($sqClicked.html() === '') {
       //checks for html content
       board[squareClicked.dataset.row][squareClicked.dataset.col] = player;
-      $sqClicked.html(player);
+      if (player === 'X') {
+        imageSrc = 'hourglass.jpg';
+      } else {
+        imageSrc = 'clock.jpg';
+      }
+      // <img src="hourglass.jpg"/>
+      $sqClicked.html('<img src="' + imageSrc + '" style="width: 60px;"/>');
       switchPlayer();
     }
     var winner = gameWonBy();
-    if (winner) {
-      alert(winner + " wins");
+    turnCounter++;
+    if (winner === "X") {
+      timeResults("Let's go back in time!");
       updateScore(winner);
       resetBoard();
+      turnCounter = 0;
+    } else if (winner === "O") {
+      timeResults("Onward to the future!");
+      updateScore(winner);
+      resetBoard();
+      turnCounter = 0;
+    } else if (NoWinner()) {
+      timeResults("NO!!! We've created a time paradox!!!");
+      resetBoard();
+      turnCounter = 0;
     }
   }
 
@@ -80,16 +106,8 @@
   };
 
 
-
-  var isBoardFull = function() {
-    // get this code from Christine
-  };
-
   var NoWinner = function (){
-    if (gameWonBy === null && isBoardFull()){
-      alert("NO!!! We've created a time paradox!!!");
-      resetBoard();
-    }
+    return turnCounter === 9;
   };
 
 

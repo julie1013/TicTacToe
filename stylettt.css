@@ -14,10 +14,14 @@ body {
   margin: 0 auto;
   margin-bottom: 10px;
   font-family:'Shadows Into Light', cursive;
-  font-size: 65px;
+  font-size: 30px;
   text-align: center;
   border-radius: 20px;
 
+}
+
+.top p {
+  color: blue;
 }
 
 .container {
@@ -73,7 +77,7 @@ td:hover {
   min-height: 50px;
   background-color: white;
   position: absolute; left: 20px; top: -200px;
-  margin: 200px 100px 500px 1000px;
+  margin: 200px 100px 500px 1060px;
   text-align: center;
   font-family: 'Shadows Into Light', cursive;
   font-size: 40px;
