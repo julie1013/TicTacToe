@@ -7,29 +7,34 @@
 </head>
 <body>
 <div class = "top">Tick-<u>Tock</u>-Toe!</div>
+<div class = "scoreX">
+  <h1>X's score</h1>
+  <div class="score">0</div>
+</div>
+<div class = "scoreO">
+  <h1>O's score</h1>
+  <div class="score">0</div>
+</div>
+<div class = "container">
   <div class = "board">
   <table style="width:100%" id="grid" class="table">
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td data-row="0" data-col="0"></td>
+      <td data-row="0" data-col="1"></td>
+      <td data-row="0" data-col="2"></td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td data-row="1" data-col="0"></td>
+      <td data-row="1" data-col="1"></td>
+      <td data-row="1" data-col="2"></td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td data-row="2" data-col="0"></td>
+      <td data-row="2" data-col="1"></td>
+      <td data-row="2" data-col="2"></td>
     </tr>
   </table>
-</div>
-<div class = "select">Choose your piece!</div>
-<div class = "scores">
-  <div class = "scoreX">X's score</div>
-  <div class ="scoreO">O's score</div>
+  </div>
 </div>
 </body>
 <script src="jquery-1.11.3.min.js" type="application/javascript"></script>
