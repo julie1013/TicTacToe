@@ -24,6 +24,17 @@ body {
   color: blue;
 }
 
+.gameForms {
+  background-color: black;
+  width: 200px;
+  position: absolute;
+  margin-top: 300px;
+  margin-left: 125px;
+  border: solid red;
+  padding: 5px;
+}
+
+
 .container {
   width: 600px;
   height: 615px;
@@ -33,7 +44,6 @@ body {
 }
 
 .board {
-
   background-color: red;
   width: 100%;
   border-radius: 20px;
@@ -84,6 +94,7 @@ td:hover {
   border-radius: 30px;
   border: 3px solid black;
   padding-top: .5%;
+  padding-bottom: 1.5%;
 }
 
 .scoreO h1 {
