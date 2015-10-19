@@ -166,6 +166,7 @@ $(function() {
   });
 
   $('#create-game').on('submit', function(e) {
+    $("#grid td").on("click", takeTurn);
     var token = $(this).children('[name="token"]').val();
     e.preventDefault();
     tttapi.createGame(token, function(err, data){
@@ -324,13 +325,16 @@ var convert = function(row, col){
     if (winner === "X") {
       timeResults("Let's go back in time!");
       updateScore(winner);
+    $("#grid td").off("click", takeTurn);
       turnCounter = 0;
     } else if (winner === "O") {
       timeResults("Onward to the future!");
       updateScore(winner);
+      $("#grid td").off("click", takeTurn);
       turnCounter = 0;
     } else if (noWinner()) {
       timeResults("NO!!! We've created a time paradox!!!");
+      $("#grid td").off("click", takeTurn);
       turnCounter = 0;
     }
   };
